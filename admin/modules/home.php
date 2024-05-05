@@ -122,52 +122,52 @@ while ($val = mysqli_fetch_array($query_metric)) {
 ?>
 
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
 
-        thongke();
+    thongke();
 
 
-        var donut = new Morris.Donut({
-            element: 'donutchart',
-            data: [{
-                    label: "Đơn hàng tại quầy",
-                    value: <?php echo $order_live ?>
-                },
-                {
-                    label: "Đơn hàng online",
-                    value: <?php echo $order_online ?>
-                },
-                {
-                    label: "Đơn hàng hủy",
-                    value: <?php echo $order_cancel ?>
-                }
-            ]
-        });
-
-        var char = new Morris.Line({
-
-            element: 'homechart',
-
-            xkey: 'date',
-
-            ykeys: ['date', 'order', 'sales', 'quantity'],
-
-            labels: ['Ngày', 'Đơn hàng', 'Doanh thu', 'Số lượng']
-        });
-
-        function thongke() {
-            var thoigian = '365ngay';
-            $.ajax({
-                url: "modules/thongke.php",
-                method: "POST",
-                dataType: "JSON",
-                data: {
-                    thoigian: thoigian
-                },
-                success: function(data) {
-                    char.setData(data);
-                }
-            })
-        }
+    var donut = new Morris.Donut({
+        element: 'donutchart',
+        data: [{
+                label: "Đơn hàng tại quầy",
+                value: <?php echo $order_live ?>
+            },
+            {
+                label: "Đơn hàng online",
+                value: <?php echo $order_online ?>
+            },
+            {
+                label: "Đơn hàng hủy",
+                value: <?php echo $order_cancel ?>
+            }
+        ]
     });
+
+    var char = new Morris.Line({
+
+        element: 'homechart',
+
+        xkey: 'date',
+
+        ykeys: ['date', 'order', 'sales', 'quantity'],
+
+        labels: ['Ngày', 'Đơn hàng', 'Doanh thu', 'Số lượng']
+    });
+
+    function thongke() {
+        var thoigian = '365ngay';
+        $.ajax({
+            url: "modules/thongke.php",
+            method: "POST",
+            dataType: "JSON",
+            data: {
+                thoigian: thoigian
+            },
+            success: function(data) {
+                char.setData(data);
+            }
+        })
+    }
+});
 </script>
