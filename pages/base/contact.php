@@ -10,7 +10,10 @@ if (isset($_POST['customer_add'])) {
     $query_insert_customer = mysqli_query($mysqli, $sql_insert_customer);
 }
 ?>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.113115808304!2d105.80123181437827!3d21.02815949317594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab424a50fff9%3A0xbe3a7f3670c0a45f!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBHaWFvIHRow7RuZyBW4bqtbiB04bqjaQ!5e0!3m2!1svi!2s!4v1664623059752!5m2!1svi!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.113115808304!2d105.80123181437827!3d21.02815949317594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab424a50fff9%3A0xbe3a7f3670c0a45f!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBHaWFvIHRow7RuZyBW4bqtbiB04bqjaQ!5e0!3m2!1svi!2s!4v1664623059752!5m2!1svi!2s"
+    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 <!-- start contact -->
 <section class="contact pd-top">
@@ -28,7 +31,8 @@ if (isset($_POST['customer_add'])) {
                     <div class="row contact__input--double">
                         <div class="col" style="--w-lg: 6">
                             <div class="contact__input">
-                                <input class="w-100 btn" type="text" name="customer_name" placeholder="Tên khách hàng" />
+                                <input class="w-100 btn" type="text" name="customer_name"
+                                    placeholder="Tên khách hàng" />
                             </div>
                         </div>
                         <div class="col" style="--w-lg: 6;">
@@ -38,12 +42,14 @@ if (isset($_POST['customer_add'])) {
                         </div>
                         <div class="col" style="--w-lg: 12;">
                             <div class="contact__input">
-                                <input class="w-100 btn" type="text" name="customer_phone" placeholder="Số điện thoại" />
+                                <input class="w-100 btn" type="text" name="customer_phone"
+                                    placeholder="Số điện thoại" />
                             </div>
                         </div>
                         <div class="col" style="--w-lg: 12;">
                             <div class="contact__textarea w-100 h-100">
-                                <textarea class="w-100 h-100 btn" name="customer_address" id="" cols="30" rows="10" placeholder="Địa chỉ"></textarea>
+                                <textarea class="w-100 h-100 btn" name="customer_address" id="" cols="30" rows="10"
+                                    placeholder="Nội dung"></textarea>
                             </div>
                         </div>
                     </div>

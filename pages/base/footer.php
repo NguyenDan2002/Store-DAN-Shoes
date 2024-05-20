@@ -1,5 +1,5 @@
 <footer class="footer">
-    <div class="footer__container">
+    <div class="footer__container" style="background-color:orange;">
         <div class="container">
             <div class="row">
                 <div class="col" style="--w-md: 3">
@@ -65,7 +65,7 @@
                 </div>
 
             </div>
-            <div class="row">
+            <div class="row" style="padding-bottom:20px;">
                 <div class="col pd-top" style="--w-md: 4;">
                     <div class="footer__subscribe">
                         <h3 class="block__heading text-center">

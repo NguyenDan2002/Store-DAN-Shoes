@@ -83,7 +83,7 @@ $query_order = mysqli_query($mysqli, $sql_order);
                                                 <div class="checkout__name flex-1">
                                                     <h3 class="checkout__name"><?php echo $cart_item['product_name'] ?></h3>
                                                     <span class="d-block">
-                                                        Mùi hương:
+                                                        Size:
                                                         <?php
                                                         $sql_variant = "SELECT * FROM product_variant WHERE product_id = '" . $cart_item['product_id'] . "' LIMIT 1";
                                                         $query_variant = mysqli_query($mysqli, $sql_variant);

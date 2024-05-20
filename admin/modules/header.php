@@ -16,14 +16,16 @@
         </div>
         <div>
             <a class="navbar-brand brand-logo" href="index.php?action=home&query">
-                <img src="images/safia.png" alt="logo" />
+                <img src="images/logo_DAN_Shoes.png" alt="logo" style="height: 80px;" />
             </a>
         </div>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-top">
         <ul class="navbar-nav">
             <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-                <h1 class="welcome-text" style="margin: 0px;">Xin chào, <span class="text-black fw-bold"><?php if (isset($_SESSION['account_name'])) { echo $_SESSION['account_name']; } ?></span></h1>
+                <h1 class="welcome-text" style="margin: 0px;">Xin chào, <span
+                        class="text-black fw-bold"><?php if (isset($_SESSION['account_name'])) { echo $_SESSION['account_name']; } ?></span>
+                </h1>
             </li>
         </ul>
         <ul class="navbar-nav ms-auto">
@@ -31,7 +33,8 @@
                 <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
                     <i class="icon-mail icon-lg"></i>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="notificationDropdown">
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
+                    aria-labelledby="notificationDropdown">
                     <a class="dropdown-item py-3 border-bottom">
                         <p class="mb-0 font-weight-medium float-left">Bạn có 4 tin nhắn mới </p>
                         <span class="badge badge-pill badge-primary float-right">View all</span>
@@ -66,11 +69,13 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown"
+                    aria-expanded="false">
                     <i class="icon-bell"></i>
                     <span class="count"></span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="countDropdown">
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
+                    aria-labelledby="countDropdown">
                     <a class="dropdown-item py-3">
                         <p class="mb-0 font-weight-medium float-left">Bạn có 3 thông báo mới </p>
                         <span class="badge badge-pill badge-primary float-right">View all</span>
@@ -111,16 +116,22 @@
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                     <div class="dropdown-header text-center">
                         <img class="img-md rounded-circle" src="images/user.png" alt="Profile image">
-                        <p class="mb-1 mt-3 font-weight-semibold"><?php if (isset($_SESSION['account_name'])) { echo $_SESSION['account_name']; } ?></p>
+                        <p class="mb-1 mt-3 font-weight-semibold">
+                            <?php if (isset($_SESSION['account_name'])) { echo $_SESSION['account_name']; } ?></p>
                         <p class="fw-light text-muted mb-0"><?php echo $_SESSION['login'] ?></p>
                     </div>
-                    <a href="index.php?action=account&query=my_account" class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger"></span></a>
-                    <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a>
-                    <a href="index.php?logout=1" class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Đăng xuất</a>
+                    <a href="index.php?action=account&query=my_account" class="dropdown-item"><i
+                            class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span
+                            class="badge badge-pill badge-danger"></span></a>
+                    <a class="dropdown-item"><i
+                            class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a>
+                    <a href="index.php?logout=1" class="dropdown-item"><i
+                            class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Đăng xuất</a>
                 </div>
             </li>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+            data-bs-toggle="offcanvas">
             <span class="mdi mdi-menu"></span>
         </button>
     </div>

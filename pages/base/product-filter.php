@@ -66,8 +66,8 @@ if (isset($_GET['pricefrom']) && isset($_GET['priceto'])) {
     <div class="container pd-bottom">
         <div class="row">
             <div class="col" style="--w-md:3;">
-                <div class="product__sidebar">
-                    <div class="sidebar__item w-100">
+                <div class="product__sidebar" style="background-color:orange;">
+                    <div class="sidebar__item w-100" style="padding:10px;">
                         <div class="sidebar__item--heading">
                             <h3 class="h3">Danh mục</h3>
                         </div>
@@ -77,9 +77,10 @@ if (isset($_GET['pricefrom']) && isset($_GET['priceto'])) {
                             $query_categorys = mysqli_query($mysqli, $sql_categorys);
                             while ($categorys = mysqli_fetch_array($query_categorys)) {
                             ?>
-                                <a href="index.php?page=products&category_id=<?php echo $categorys['category_id'];
+                            <a href="index.php?page=products&category_id=<?php echo $categorys['category_id'];
                                                                                 echo $url_price;
-                                                                                echo $url_sort; ?>" class="sidebar__item--label d-block <?php if (isset($_GET['category_id']) && $categorys['category_id'] == $_GET['category_id']) {
+                                                                                echo $url_sort; ?>"
+                                class="sidebar__item--label d-block <?php if (isset($_GET['category_id']) && $categorys['category_id'] == $_GET['category_id']) {
                                                                                                                                                 echo 'category__active';
                                                                                                                                             } ?>"><?php echo $categorys['category_name'] ?></a>
                             <?php
@@ -87,7 +88,7 @@ if (isset($_GET['pricefrom']) && isset($_GET['priceto'])) {
                             ?>
                         </div>
                     </div>
-                    <div class="sidebar__item w-100">
+                    <div class="sidebar__item w-100" style="padding:10px;">
                         <div class="sidebar__item--heading">
                             <h3 class="h3">Lọc theo giá</h3>
                         </div>
@@ -97,8 +98,9 @@ if (isset($_GET['pricefrom']) && isset($_GET['priceto'])) {
                                     <div class="progress"></div>
                                 </div>
                                 <div class="range-input">
-                                    <input type="range" class="range-min" min="0" max="50000000" value="0" step="100000">
-                                    <input type="range" class="range-max" min="0" max="50000000" value="50000000" step="100000">
+                                    <input type="range" class="range-min" min="0" max="500000" value="0" step="50000">
+                                    <input type="range" class="range-max" min="0" max="500000" value="500000"
+                                        step="50000">
                                 </div>
                                 <div class="price-input d-flex space-between">
                                     <div class="field">
@@ -107,16 +109,17 @@ if (isset($_GET['pricefrom']) && isset($_GET['priceto'])) {
                                     </div>
                                     <div class="separator">&mdash;</div>
                                     <div class="field">
-                                        <input type="number" id="price-to" class="input-max h4" value="50000000">
+                                        <input type="number" id="price-to" class="input-max h4" value="500000">
                                         <span class="h6 max-value">đ</span>
                                     </div>
 
                                 </div>
-                                <a href="" class="btn btn__solid btn__filter text-right" onclick="setUrlPrice();">Lọc</a>
+                                <a href="" class="btn btn__solid btn__filter text-right"
+                                    onclick="setUrlPrice();">Lọc</a>
                             </div>
                         </div>
                     </div>
-                    <div class="sidebar__item w-100">
+                    <div class="sidebar__item w-100" style="padding:10px;">
                         <div class="sidebar__item--heading">
                             <h3 class="h3">Thương hiệu</h3>
                         </div>
@@ -127,13 +130,14 @@ if (isset($_GET['pricefrom']) && isset($_GET['priceto'])) {
                                 $query_brands = mysqli_query($mysqli, $sql_brands);
                                 while ($brands = mysqli_fetch_array($query_brands)) {
                                 ?>
-                                    <a href="index.php?page=products&brand_id=<?php echo $brands['brand_id'];
+                                <a href="index.php?page=products&brand_id=<?php echo $brands['brand_id'];
                                                                                 echo $url_price;
-                                                                                echo $url_sort; ?>" class="custom-label product-detail__variant--item <?php if (isset($_GET['brand_id']) && $brands['brand_id'] == $_GET['brand_id']) {
+                                                                                echo $url_sort; ?>"
+                                    class="custom-label product-detail__variant--item <?php if (isset($_GET['brand_id']) && $brands['brand_id'] == $_GET['brand_id']) {
                                                                                                                                                                 echo 'variant__active';
                                                                                                                                                             } ?>" for="1">
-                                        <?php echo $brands['brand_name'] ?>
-                                    </a>
+                                    <?php echo $brands['brand_name'] ?>
+                                </a>
                                 <?php
                                 }
                                 ?>
@@ -149,45 +153,49 @@ if (isset($_GET['pricefrom']) && isset($_GET['priceto'])) {
                         <div class="product__tag d-flex">
                             <?php if ($url_price != '') {
                             ?>
-                                <a class="tag__item" href="index.php?page=products<?php echo $url_category;
+                            <a class="tag__item" href="index.php?page=products<?php echo $url_category;
                                                                                     echo $url_brand;
                                                                                     echo $url_sort; ?>">
-                                    <div class="d-flex align-center">
-                                        <div class="btn__tag d-flex align-center"><img class="icon-close" src="./assets/images/icon/icon-close.png" alt=""></div>
-                                        <div class="tag__content d-flex align-center">
-                                            <span class="tag__name h5">Giá <?php echo number_format($price_from) ?>đ - <?php echo number_format($price_to) ?>đ</span>
-                                        </div>
+                                <div class="d-flex align-center">
+                                    <div class="btn__tag d-flex align-center"><img class="icon-close"
+                                            src="./assets/images/icon/icon-close.png" alt=""></div>
+                                    <div class="tag__content d-flex align-center">
+                                        <span class="tag__name h5">Giá <?php echo number_format($price_from) ?>đ -
+                                            <?php echo number_format($price_to) ?>đ</span>
                                     </div>
-                                </a>
+                                </div>
+                            </a>
                             <?php
                             }
                             ?>
                             <?php if ($url_category != '') {
                             ?>
-                                <a class="tag__item" href="index.php?page=products<?php echo $url_brand;
+                            <a class="tag__item" href="index.php?page=products<?php echo $url_brand;
                                                                                     echo $url_price;
                                                                                     echo $url_sort; ?>">
-                                    <div class="d-flex align-center">
-                                        <div class="btn__tag d-flex align-center"><img class="icon-close" src="./assets/images/icon/icon-close.png" alt=""></div>
-                                        <div class="tag__content d-flex align-center">
-                                            <span class="tag__name h5">Danh mục sản phẩm</span>
-                                        </div>
+                                <div class="d-flex align-center">
+                                    <div class="btn__tag d-flex align-center"><img class="icon-close"
+                                            src="./assets/images/icon/icon-close.png" alt=""></div>
+                                    <div class="tag__content d-flex align-center">
+                                        <span class="tag__name h5">Danh mục sản phẩm</span>
                                     </div>
-                                </a>
+                                </div>
+                            </a>
                             <?php
                             } ?>
                             <?php if ($url_brand != '') {
                             ?>
-                                <a class="tag__item" href="index.php?page=products<?php echo $url_category;
+                            <a class="tag__item" href="index.php?page=products<?php echo $url_category;
                                                                                     echo $url_price;
                                                                                     echo $url_sort; ?>">
-                                    <div class="d-flex align-center">
-                                        <div class="btn__tag d-flex align-center"><img class="icon-close" src="./assets/images/icon/icon-close.png" alt=""></div>
-                                        <div class="tag__content d-flex align-center">
-                                            <span class="tag__name h5">Thương hiệu</span>
-                                        </div>
+                                <div class="d-flex align-center">
+                                    <div class="btn__tag d-flex align-center"><img class="icon-close"
+                                            src="./assets/images/icon/icon-close.png" alt=""></div>
+                                    <div class="tag__content d-flex align-center">
+                                        <span class="tag__name h5">Thương hiệu</span>
                                     </div>
-                                </a>
+                                </div>
+                            </a>
                             <?php
                             } ?>
                         </div>
@@ -199,26 +207,28 @@ if (isset($_GET['pricefrom']) && isset($_GET['priceto'])) {
                     while ($row = mysqli_fetch_array($query_product_list)) {
                         $i++;
                     ?>
-                        <div class="col" style="--w: 9; --w-md: 4">
-                            <div class="product__card d-flex flex-column">
-                                <div class="product__image p-relative">
-                                    <a href="index.php?page=product_detail&product_id=<?php echo $row['product_id'] ?>">
-                                        <img class="w-100 h-100 object-fit-cover" src="admin/modules/product/uploads/<?php echo $row['product_image'] ?>" alt="product image" />
-                                    </a>
-                                    <?php
+                    <div class="col" style="--w: 9; --w-md: 4">
+                        <div class="product__card d-flex flex-column">
+                            <div class="product__image p-relative">
+                                <a href="index.php?page=product_detail&product_id=<?php echo $row['product_id'] ?>">
+                                    <img class="w-100 h-100 object-fit-cover"
+                                        src="admin/modules/product/uploads/<?php echo $row['product_image'] ?>"
+                                        alt="product image" />
+                                </a>
+                                <?php
                                     if ($row['product_sale'] > 0) {
                                     ?>
-                                        <span class="product__sale h6 p-absolute"> - <?php echo $row['product_sale'] ?>%</span>
-                                    <?php
+                                <span class="product__sale h6 p-absolute"> - <?php echo $row['product_sale'] ?>%</span>
+                                <?php
                                     }
                                     ?>
-                                </div>
-                                <div class="product__info">
-                                    <a href="index.php?page=product_detail&product_id=<?php echo $row['product_id'] ?>">
-                                        <h3 class="product__name h5"><?php echo $row['product_name'] ?></h3>
-                                    </a>
-                                    <span class="review-star-list d-flex">
-                                        <?php
+                            </div>
+                            <div class="product__info" style="padding-left:10px;">
+                                <a href="index.php?page=product_detail&product_id=<?php echo $row['product_id'] ?>">
+                                    <h3 class="product__name h5"><?php echo $row['product_name'] ?></h3>
+                                </a>
+                                <span class="review-star-list d-flex">
+                                    <?php
                                         $query_evaluate_rating = mysqli_query($mysqli, "SELECT * FROM evaluate WHERE product_id='" . $row['product_id'] . "' AND evaluate_status = 1");
 
                                         $rate1 = 0;
@@ -254,33 +264,35 @@ if (isset($_GET['pricefrom']) && isset($_GET['priceto'])) {
                                         for ($i = 0; $i < 5; $i++) {
                                             if ($i < $rate_avg) {
                                         ?>
-                                                <div class="rating-star"></div>
-                                            <?php
+                                    <div class="rating-star"></div>
+                                    <?php
                                             } else {
                                             ?>
-                                                <div class="rating-star rating-off"></div>
-                                        <?php
+                                    <div class="rating-star rating-off"></div>
+                                    <?php
                                             }
                                         }
                                         ?>
-                                        <span>(<?php echo $total_rate ?>)</span>
-                                    </span>
-                                    <a href="index.php?page=product_detail&product_id=<?php echo $row['product_id'] ?>">
-                                        <div class="product__price align-center">
-                                            <?php
+                                    <span>(<?php echo $total_rate ?>)</span>
+                                </span>
+                                <a href="index.php?page=product_detail&product_id=<?php echo $row['product_id'] ?>">
+                                    <div class="product__price align-center">
+                                        <?php
                                             if ($row['product_sale'] > 0) {
                                             ?>
-                                                <del class="product__price--old h5"><?php echo number_format($row['product_price']) . ' ₫' ?></del>
+                                        <del
+                                            class="product__price--old h5"><?php echo number_format($row['product_price']) . ' ₫' ?></del>
 
-                                            <?php
+                                        <?php
                                             }
                                             ?>
-                                            <span class="product__price--new h4"><?php echo (number_format($row['product_price'] - ($row['product_price'] / 100 * $row['product_sale']))) . ' vnđ' ?></span>
-                                        </div>
-                                    </a>
-                                </div>
+                                        <span
+                                            class="product__price--new h4"><?php echo (number_format($row['product_price'] - ($row['product_price'] / 100 * $row['product_sale']))) . ' vnđ' ?></span>
+                                    </div>
+                                </a>
                             </div>
                         </div>
+                    </div>
                     <?php
                     }
                     ?>
@@ -319,39 +331,42 @@ if (isset($_GET['pricefrom']) && isset($_GET['priceto'])) {
                             $totalpage = ceil($row_count / 9);
                             if ($row_count > 9) {
                             ?>
-                                <ul class="pagination__items d-flex align-center justify-center">
-                                    <?php if ($page != 1) {
+                            <ul class="pagination__items d-flex align-center justify-center">
+                                <?php if ($page != 1) {
                                     ?>
-                                        <li class="pagination__item">
-                                            <a class="d-flex align-center" href="<?php echo $currentLink ?>&pagenumber=<?php echo $page - 1 ?>">
-                                                <img src="./assets/images/icon/arrow-left.svg" alt="">
-                                            </a>
-                                        </li>
-                                    <?php
+                                <li class="pagination__item">
+                                    <a class="d-flex align-center"
+                                        href="<?php echo $currentLink ?>&pagenumber=<?php echo $page - 1 ?>">
+                                        <img src="./assets/images/icon/arrow-left.svg" alt="">
+                                    </a>
+                                </li>
+                                <?php
                                     } ?>
-                                    <?php
+                                <?php
                                     for ($i = 1; $i <= $totalpage; $i++) {
                                     ?>
-                                        <li class="pagination__item">
-                                            <a class="pagination__anchor <?php if ($page == $i) {
+                                <li class="pagination__item">
+                                    <a class="pagination__anchor <?php if ($page == $i) {
                                                                                 echo "active";
                                                                             } else {
                                                                                 echo "";
-                                                                            } ?>" href="<?php echo $currentLink ?>&pagenumber=<?php echo $i ?>"><?php echo $i ?></a>
-                                        </li>
-                                    <?php
+                                                                            } ?>"
+                                        href="<?php echo $currentLink ?>&pagenumber=<?php echo $i ?>"><?php echo $i ?></a>
+                                </li>
+                                <?php
                                     }
                                     ?>
-                                    <?php if ($page != $totalpage) {
+                                <?php if ($page != $totalpage) {
                                     ?>
-                                        <li class="pagination__item">
-                                            <a class="d-flex align-center" href="<?php echo $currentLink ?>&pagenumber=<?php echo $page + 1 ?>">
-                                                <img src="./assets/images/icon/icon-nextlink.svg" alt="">
-                                            </a>
-                                        </li>
-                                    <?php
+                                <li class="pagination__item">
+                                    <a class="d-flex align-center"
+                                        href="<?php echo $currentLink ?>&pagenumber=<?php echo $page + 1 ?>">
+                                        <img src="./assets/images/icon/icon-nextlink.svg" alt="">
+                                    </a>
+                                </li>
+                                <?php
                                     } ?>
-                                </ul>
+                            </ul>
                             <?php
                             }
                             ?>
@@ -370,17 +385,17 @@ if (isset($_GET['pricefrom']) && isset($_GET['priceto'])) {
     </div>
 </div>
 <script>
-    var currentURL = window.location.href;
+var currentURL = window.location.href;
 
-    function setUrlPrice() {
-        var inputMin = document.querySelector('.input-min').value;
-        var inputMax = document.querySelector('.input-max').value;
-        var btnFilter = document.querySelector('.btn__filter');
-        var link = currentURL + "&pricefrom=" + inputMin + "&priceto=" + inputMax;
-        console.log(link);
-        btnFilter.href = link;
-    }
-    window.history.pushState(null, "", "index.php?page=products" + "<?php echo $url_category;
+function setUrlPrice() {
+    var inputMin = document.querySelector('.input-min').value;
+    var inputMax = document.querySelector('.input-max').value;
+    var btnFilter = document.querySelector('.btn__filter');
+    var link = currentURL + "&pricefrom=" + inputMin + "&priceto=" + inputMax;
+    console.log(link);
+    btnFilter.href = link;
+}
+window.history.pushState(null, "", "index.php?page=products" + "<?php echo $url_category;
                                                                     echo $url_brand;
                                                                     echo $url_price;
                                                                     echo $url_sort; ?>");

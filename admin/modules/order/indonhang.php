@@ -44,7 +44,7 @@
 	$pdf->Cell($width_cell[0],10,'ID',1,0,'C',true);
 	$pdf->Cell($width_cell[1],10,'Mã SP',1,0,'C',true);
 	$pdf->Cell($width_cell[2],10,'Tên sản phẩm',1,0,'C',true);
-	$pdf->Cell($width_cell[3],10,'Mùi hương',1,0,'C',true);
+	$pdf->Cell($width_cell[3],10,'Size',1,0,'C',true);
 	$pdf->Cell($width_cell[4],10,'Số lượng',1,0,'C',true); 
 	$pdf->Cell($width_cell[5],10,'Đơn giá',1,0,'C',true);
 	$pdf->Cell($width_cell[6],10,'Thành tiền',1,1,'C',true); 
@@ -70,7 +70,7 @@
 	$pdf->Write(10,'Tổng tiền đơn hàng: '.number_format($total).'đ');
 	$pdf->Ln(20);
 
-    $pdf->Write(10,'Safia store cảm ơn bạn đã sử dụng dịch vụ.');
+    $pdf->Write(10,'DAN Shoes cảm ơn bạn đã sử dụng dịch vụ.');
 	$pdf->Ln(10);
 
 	$pdf->Output(); 

@@ -8,7 +8,7 @@ if (isset($_GET['category_id'])) {
 }
 
 ?>
-<div class="product__banner p-relative">
+<div class="product__banner p-relative" style="margin-top: 20px;">
     <div class="image__banner p-absolute">
 
     </div>

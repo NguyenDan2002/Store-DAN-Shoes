@@ -5,9 +5,9 @@ $query_scent_list = mysqli_query($mysqli, $sql_scent_list);
 <div class="row">
     <div class="col">
         <div class="header__list d-flex space-between align-center">
-            <h3 class="card-title" style="margin: 0;">Danh thương hiệu</h3>
+            <h3 class="card-title" style="margin: 0;">Danh sach size</h3>
             <div class="action_group">
-                <a href="?action=scent&query=scent_add" class="button button-dark">Thêm mùi hương</a>
+                <a href="?action=scent&query=scent_add" class="button button-dark">Thêm size</a>
             </div>
         </div>
     </div>
@@ -30,12 +30,12 @@ $query_scent_list = mysqli_query($mysqli, $sql_scent_list);
                     <table class="table table-hover table-action">
                         <thead>
                             <tr>
-                            <th></th>
+                                <th></th>
                                 <th>
                                     <input type="checkbox" id="checkAll">
                                 </th>
                                 <th>#</th>
-                                <th>Tên mùi hương</th>
+                                <th>Tên size</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,20 +44,22 @@ $query_scent_list = mysqli_query($mysqli, $sql_scent_list);
                             while ($row = mysqli_fetch_array($query_scent_list)) {
                                 $i++;
                             ?>
-                                <tr>
-                                    <td>
-                                        <a href="?action=scent&query=scent_edit&scent_id=<?php echo $row['scent_id'] ?>">
-                                            <div class="icon-edit">
-                                                <img class="w-100 h-100" src="images/icon-edit.png" alt="">
-                                            </div>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <input type="checkbox" class="checkbox" onclick="testChecked(); getCheckedCheckboxes();" id="<?php echo $row['scent_id'] ?>">
-                                    </td>
-                                    <td><?php echo $row['scent_id'] ?></td>
-                                    <td><?php echo $row['scent_name'] ?></td>
-                                </tr>
+                            <tr>
+                                <td>
+                                    <a href="?action=scent&query=scent_edit&scent_id=<?php echo $row['scent_id'] ?>">
+                                        <div class="icon-edit">
+                                            <img class="w-100 h-100" src="images/icon-edit.png" alt="">
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <input type="checkbox" class="checkbox"
+                                        onclick="testChecked(); getCheckedCheckboxes();"
+                                        id="<?php echo $row['scent_id'] ?>">
+                                </td>
+                                <td><?php echo $row['scent_id'] ?></td>
+                                <td><?php echo $row['scent_name'] ?></td>
+                            </tr>
                             <?php
                             }
                             ?>
@@ -74,52 +76,52 @@ $query_scent_list = mysqli_query($mysqli, $sql_scent_list);
     </div>
 </div>
 <script>
-    var btnDelete = document.getElementById("btnDelete");
-    var checkAll = document.getElementById("checkAll");
-    var checkboxes = document.getElementsByClassName("checkbox");
-    var dialogControl = document.querySelector('.dialog__control');
-    // Thêm sự kiện click cho checkbox checkAll
-    checkAll.addEventListener("click", function() {
-        // Nếu checkbox checkAll được chọn
-        if (checkAll.checked) {
-            // Đặt thuộc tính "checked" cho tất cả các checkbox còn lại
-            for (var i = 0; i < checkboxes.length; i++) {
-                checkboxes[i].checked = true;
-            }
-        } else {
-            // Bỏ thuộc tính "checked" cho tất cả các checkbox còn lại
-            for (var i = 0; i < checkboxes.length; i++) {
-                checkboxes[i].checked = false;
-            }
+var btnDelete = document.getElementById("btnDelete");
+var checkAll = document.getElementById("checkAll");
+var checkboxes = document.getElementsByClassName("checkbox");
+var dialogControl = document.querySelector('.dialog__control');
+// Thêm sự kiện click cho checkbox checkAll
+checkAll.addEventListener("click", function() {
+    // Nếu checkbox checkAll được chọn
+    if (checkAll.checked) {
+        // Đặt thuộc tính "checked" cho tất cả các checkbox còn lại
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = true;
         }
-        testChecked();
-        getCheckedCheckboxes();
-    });
-
-    console.log(checkboxes[0]);
-
-    function testChecked() {
-        var count = 0;
-        for (let i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) {
-                count++;
-                console.log(count);
-            }
-        }
-        if (count > 0) {
-            dialogControl.classList.add('active');
-        } else {
-            dialogControl.classList.remove('active');
-            checkAll.checked = false;
+    } else {
+        // Bỏ thuộc tính "checked" cho tất cả các checkbox còn lại
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = false;
         }
     }
+    testChecked();
+    getCheckedCheckboxes();
+});
 
-    function getCheckedCheckboxes() {
-        var checkeds = document.querySelectorAll('.checkbox:checked');
-        var checkedIds = [];
-        for (var i = 0; i < checkeds.length; i++) {
-            checkedIds.push(checkeds[i].id);
+console.log(checkboxes[0]);
+
+function testChecked() {
+    var count = 0;
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            count++;
+            console.log(count);
         }
-        btnDelete.href = "modules/scent/xuly.php?data="+ JSON.stringify(checkedIds);
     }
+    if (count > 0) {
+        dialogControl.classList.add('active');
+    } else {
+        dialogControl.classList.remove('active');
+        checkAll.checked = false;
+    }
+}
+
+function getCheckedCheckboxes() {
+    var checkeds = document.querySelectorAll('.checkbox:checked');
+    var checkedIds = [];
+    for (var i = 0; i < checkeds.length; i++) {
+        checkedIds.push(checkeds[i].id);
+    }
+    btnDelete.href = "modules/scent/xuly.php?data=" + JSON.stringify(checkedIds);
+}
 </script>
