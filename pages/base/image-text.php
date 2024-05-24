@@ -8,7 +8,8 @@
                 <div class="image-text__box h-100 d-flex content__middle-left">
                     <div class="image-text__content text-left">
                         <h2 class="image-text__title h2">Giày Converse</h2>
-                        <p class="image-text__context h4">Thương hiệu giày bán chạy hàng đầu được nhiều người tin chọn.</p>
+                        <p class="image-text__context h4">Thương hiệu giày bán chạy hàng đầu được nhiều người tin chọn.
+                        </p>
                         <a href="#" class="image-text__btn btn btn__outline">
                             Xem ngay
                         </a>

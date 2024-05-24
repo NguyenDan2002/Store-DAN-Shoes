@@ -45,8 +45,10 @@
                         <details class="sort__select p-relative">
                             <summary class="cursor-pointer d-flex align-center">
                                 Giá
-                                <img src="./assets/images/icon/icon-chevron-down.svg" alt="down" class="icon-open d-block" style="margin-left: 8px;">
-                                <img src="./assets/images/icon/chevron-up.svg" alt="up" class="icon-close d-none" style="margin-left: 8px;">
+                                <img src="./assets/images/icon/icon-chevron-down.svg" alt="down"
+                                    class="icon-open d-block" style="margin-left: 8px;">
+                                <img src="./assets/images/icon/chevron-up.svg" alt="up" class="icon-close d-none"
+                                    style="margin-left: 8px;">
                             </summary>
                             <div class="sort__selectbox p-absolute selectbox__right">
                                 <div class="selectbox__item">
@@ -64,17 +66,17 @@
     </div>
 </div>
 <script>
-    var currentURL = window.location.href;
+var currentURL = window.location.href;
 
-    function ascPrice() {
-        var priceAsc = document.getElementById('price-asc');
-        var link = currentURL + "&pricesort=asc";
-        priceAsc.href = link;
-    }
+function ascPrice() {
+    var priceAsc = document.getElementById('price-asc');
+    var link = currentURL + "&pricesort=asc";
+    priceAsc.href = link;
+}
 
-    function descPrice() {
-        var priceDesc = document.getElementById('price-desc');
-        var link = currentURL + "&pricesort=desc";
-        priceDesc.href = link;
-    }
+function descPrice() {
+    var priceDesc = document.getElementById('price-desc');
+    var link = currentURL + "&pricesort=desc";
+    priceDesc.href = link;
+}
 </script>

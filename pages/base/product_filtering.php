@@ -16,26 +16,30 @@
             if (count($similar_products) > 0) {
                 foreach ($similar_products as $row_relatedProc) {
             ?>
-                    <div class="col" style="--w: 6; --w-md: 3">
-                        <div class="product__card d-flex flex-column">
-                            <div class="product__image p-relative">
-                                <a href="index.php?page=product_detail&product_id=<?php echo $row_relatedProc['product_id'] ?>">
-                                    <img class="w-100 h-100 object-fit-cover" src="admin/modules/product/uploads/<?php echo $row_relatedProc['product_image'] ?>" alt="product image" />
-                                </a>
-                                <?php
+            <div class="col" style="--w: 6; --w-md: 3">
+                <div class="product__card d-flex flex-column">
+                    <div class="product__image p-relative">
+                        <a href="index.php?page=product_detail&product_id=<?php echo $row_relatedProc['product_id'] ?>">
+                            <img class="w-100 h-100 object-fit-cover"
+                                src="admin/modules/product/uploads/<?php echo $row_relatedProc['product_image'] ?>"
+                                alt="product image" />
+                        </a>
+                        <?php
                                 if ($row_relatedProc['product_sale'] > 0) {
                                 ?>
-                                    <span class="product__sale h6 p-absolute"> - <?php echo $row_relatedProc['product_sale'] ?>%</span>
-                                <?php
+                        <span class="product__sale h6 p-absolute"> -
+                            <?php echo $row_relatedProc['product_sale'] ?>%</span>
+                        <?php
                                 }
                                 ?>
-                            </div>
-                            <div class="product__info">
-                                <a href="index.php?page=product_detail&product_id=<?php echo $row_relatedProc['product_id'] ?>">
-                                    <h3 class="product__name h5"><?php echo mb_strimwidth($row_relatedProc['product_name'], 0, 50, "...") ?></h3>
-                                </a>
-                                <span class="review-star-list d-flex">
-                                    <?php
+                    </div>
+                    <div class="product__info" style="padding-left:10px;">
+                        <a href="index.php?page=product_detail&product_id=<?php echo $row_relatedProc['product_id'] ?>">
+                            <h3 class="product__name h5">
+                                <?php echo mb_strimwidth($row_relatedProc['product_name'], 0, 50, "...") ?></h3>
+                        </a>
+                        <span class="review-star-list d-flex">
+                            <?php
                                     $query_evaluate_rating = mysqli_query($mysqli, "SELECT * FROM evaluate WHERE product_id='" . $row_relatedProc['product_id'] . "' AND evaluate_status = 1");
 
                                     $rate1 = 0;
@@ -71,33 +75,35 @@
                                     for ($i = 0; $i < 5; $i++) {
                                         if ($i < $rate_avg) {
                                     ?>
-                                            <div class="rating-star"></div>
-                                        <?php
+                            <div class="rating-star"></div>
+                            <?php
                                         } else {
                                         ?>
-                                            <div class="rating-star rating-off"></div>
-                                    <?php
+                            <div class="rating-star rating-off"></div>
+                            <?php
                                         }
                                     }
                                     ?>
 
-                                    <span>(<?php echo $total_rate ?>)</span>
-                                </span>
-                                <a href="index.php?page=product_detail&product_id=<?php echo $row_relatedProc['product_id'] ?>">
-                                    <div class="product__price align-center">
-                                        <?php
+                            <span>(<?php echo $total_rate ?>)</span>
+                        </span>
+                        <a href="index.php?page=product_detail&product_id=<?php echo $row_relatedProc['product_id'] ?>">
+                            <div class="product__price align-center">
+                                <?php
                                         if ($row_relatedProc['product_sale'] > 0) {
                                         ?>
-                                            <del class="product__price--old h5"><?php echo number_format($row_relatedProc['product_price']) . ' ₫' ?></del>
-                                        <?php
+                                <del
+                                    class="product__price--old h5"><?php echo number_format($row_relatedProc['product_price']) . ' ₫' ?></del>
+                                <?php
                                         }
                                         ?>
-                                        <span class="product__price--new h4"><?php echo (number_format($row_relatedProc['product_price'] - ($row_relatedProc['product_price'] / 100 * $row_relatedProc['product_sale'])) . ' ₫') ?></span>
-                                    </div>
-                                </a>
+                                <span
+                                    class="product__price--new h4"><?php echo (number_format($row_relatedProc['product_price'] - ($row_relatedProc['product_price'] / 100 * $row_relatedProc['product_sale'])) . ' ₫') ?></span>
                             </div>
-                        </div>
+                        </a>
                     </div>
+                </div>
+            </div>
             <?php
                 }
             }

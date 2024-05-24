@@ -14,26 +14,9 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
     display: none;
 }
 </style>
-<header class="header">
-    <div class="header__topbar">
-        <div class="container p-relative d-flex space-between align-center">
-            <p class="h5">Miễn phí ship toàn quốc</p>
-            <?php if (isset($_SESSION['account_email'])) {
-            ?>
-            <a class="h5 login-btn p-absolute" href="index.php?logout=1"><img class="image_login"
-                    src="./assets/images/icon/log-out.png" alt="Đăng xuất"><span>ĐĂNG XUẤT</span></a>
-            <?php
-            } else {
-            ?>
-            <a class="h5 login-btn p-absolute" href="index.php?page=login"><img class="image_login"
-                    src="./assets/images/icon/log-out.png" alt="Đăng nhập"><span>ĐĂNG NHẬP</span></a>
-            <?php
-            }
-            ?>
-        </div>
-    </div>
-    <div class="header__main">
-        <div class="container">
+<header class="header" style="background-color: orange;">
+    <div class="header__main" style="background-color: orange;">
+        <div class="container wid">
             <div class="header__container d-grid middle-left">
                 <!-- menu button -->
                 <div class="header__btn md-none d-flex align-center">
@@ -52,7 +35,7 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
                         <li class="nav__item md-none">
                             <a href="#" class="nav__anchor" style="content: ''"></a>
                         </li>
-                        <li class="nav__item nav__items h7">
+                        <li class="nav__item nav__items h7 lib_b">
                             <span
                                 class="nav__anchor p-relative h7 d-flex align-center space-between w-100 cursor-pointer"
                                 href="#">
@@ -93,7 +76,7 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
 
                             </ul>
                         </li>
-                        <li class="nav__item nav__items h7">
+                        <li class="nav__item nav__items h7 lib_b">
                             <span
                                 class="nav__anchor p-relative h7 d-flex align-center space-between w-100 cursor-pointer"
                                 href="#">
@@ -128,23 +111,23 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
 
                             </ul>
                         </li>
-                        <li class="nav__item">
+                        <li class="nav__item lib_b lib_r">
                             <a class="nav__anchor h7 d-flex align-center space-between" href="index.php?page=about">
                                 Giới thiệu
                             </a>
                         </li>
-                        <li class="nav__item">
+                        <li class="nav__item lib_b lib_r">
                             <a class="nav__anchor h7 d-flex align-center space-between" href="index.php?page=blog">
                                 Blog
                             </a>
                         </li>
-                        <li class="nav__item">
+                        <li class="nav__item lib_b lib_r">
                             <a class="nav__anchor h7 d-flex align-center space-between" href="index.php?page=contact">
                                 Liên hệ
                             </a>
                         </li>
                     </ul>
-                    <div class="flex-1"></div>
+
                     <div class="header__footer md-none">
                         <div class="person-login d-flex align-center">
                             <img class="svg__icon" src="./assets/images/icon/icon-person.svg" alt="person" />
@@ -189,7 +172,9 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
                         </ul>
                     </div>
                 </nav>
-                <div class="header__action d-flex align-center">
+                <div class="header__action d-flex align-center"
+                    style="background-color: white; width:110%; padding: 0 0 0 15px;">
+
                     <div class="header__action--item d-flex align-center p-relative">
                         <form action="index.php?page=search" method="POST" class="d-flex align-center" id="search-box">
                             <input type="text" placeholder="Tìm kiếm sản phẩm ..." id="input-search" name="keyword"
@@ -218,6 +203,7 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
                                 alt="person" />
                         </a>
                     </div>
+
                     <div class="header__action--item d-flex align-center">
                         <a class="header__action--link d-inline-block" href="index.php?page=cart">
                             <?php
@@ -239,11 +225,43 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
                             ?>
                         </a>
                     </div>
+                    <div class="header__action--item align-center d-flex mar">
+                        <?php if (isset($_SESSION['account_email'])) {
+            ?>
+                        <a class="h5 login-btn p-absolute" href="index.php?logout=1"><img class="image_login"
+                                src="./assets/images/icon/log-out.png" alt="Đăng xuất"><span>ĐĂNG XUẤT</span></a>
+                        <?php
+            } else {
+            ?>
+                        <a class="h5 login-btn p-absolute" href="index.php?page=login"><img class="image_login"
+                                src="./assets/images/icon/log-out.png" alt="Đăng nhập"><span>ĐĂNG NHẬP</span></a>
+                        <?php
+            }
+            ?>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="header-nav-overlay"></div>
     </div>
+    <style>
+    .wid {
+        max-width: 100%;
+    }
+
+    .mar {
+        margin-right: 100px;
+    }
+
+    .mar a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .mar a span {
+        margin-left: 5px;
+    }
+    </style>
 </header>
 <script>
 function voiceInput() {

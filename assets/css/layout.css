@@ -1,5 +1,6 @@
 .container {
   width: 100%;
+
   max-width: 1200px;
   margin: 0 auto;
   padding-inline: 12.5px;
@@ -9,6 +10,10 @@
   display: flex;
   flex-wrap: wrap;
   margin-inline: calc(-1 * var(--gutter));
+}
+.col .row .product__card {
+  background-color: orange;
+  border: 2px solid gray;
 }
 
 .col {
@@ -20,7 +25,9 @@
   width: 100%;
   max-width: calc((100% / 12) * var(--w));
 }
-
+.custom-orange-bg {
+  background-color: orange;
+}
 @media (min-width: 576px) {
   [style*="--w-sm"] {
     width: calc((100% / 12) * var(--w-sm));

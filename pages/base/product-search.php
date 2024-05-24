@@ -19,26 +19,28 @@ $query_product_list = mysqli_query($mysqli, $sql_product_list);
             while ($row = mysqli_fetch_array($query_product_list)) {
                 $i++;
             ?>
-                <div class="col" style="--w: 6; --w-md: 3">
-                    <div class="product__card d-flex flex-column">
-                        <div class="product__image p-relative">
-                            <a href="index.php?page=product_detail&product_id=<?php echo $row['product_id'] ?>">
-                                <img class="w-100 h-100 object-fit-cover" src="admin/modules/product/uploads/<?php echo $row['product_image'] ?>" alt="product image" />
-                            </a>
-                            <?php
+            <div class="col" style="--w: 6; --w-md: 3">
+                <div class="product__card d-flex flex-column">
+                    <div class="product__image p-relative">
+                        <a href="index.php?page=product_detail&product_id=<?php echo $row['product_id'] ?>">
+                            <img class="w-100 h-100 object-fit-cover"
+                                src="admin/modules/product/uploads/<?php echo $row['product_image'] ?>"
+                                alt="product image" />
+                        </a>
+                        <?php
                             if ($row['product_sale'] > 0) {
                             ?>
-                                <span class="product__sale h6 p-absolute"> - <?php echo $row['product_sale'] ?>%</span>
-                            <?php
+                        <span class="product__sale h6 p-absolute"> - <?php echo $row['product_sale'] ?>%</span>
+                        <?php
                             }
                             ?>
-                        </div>
-                        <div class="product__info">
-                            <a href="index.php?page=product_detail&product_id=<?php echo $row['product_id'] ?>">
-                                <h3 class="product__name h5"><?php echo $row['product_name'] ?></h3>
-                            </a>
-                            <span class="review-star-list d-flex">
-                                <?php
+                    </div>
+                    <div class="product__info">
+                        <a href="index.php?page=product_detail&product_id=<?php echo $row['product_id'] ?>">
+                            <h3 class="product__name h5"><?php echo $row['product_name'] ?></h3>
+                        </a>
+                        <span class="review-star-list d-flex">
+                            <?php
                                 $query_evaluate_rating = mysqli_query($mysqli, "SELECT * FROM evaluate WHERE product_id='".$row['product_id']."' AND evaluate_status = 1");
                                 
                                 $rate1 = 0;
@@ -74,26 +76,28 @@ $query_product_list = mysqli_query($mysqli, $sql_product_list);
                                 for ($i = 0; $i < 5; $i++) {
                                     if ($i < $rate_avg) {
                                 ?>
-                                        <div class="rating-star"></div>
-                                    <?php
+                            <div class="rating-star"></div>
+                            <?php
                                     } else {
                                     ?>
-                                        <div class="rating-star rating-off"></div>
-                                <?php
+                            <div class="rating-star rating-off"></div>
+                            <?php
                                     }
                                 }
                                 ?>
-                                <span>(<?php echo $total_rate ?>)</span>
-                            </span>
-                            <a href="index.php?page=product_detail&product_id=<?php echo $row['product_id'] ?>">
-                                <div class="product__price align-center">
-                                    <del class="product__price--old h5"><?php echo number_format($row['product_price']) . ' ₫' ?></del>
-                                    <span class="product__price--new h4"><?php echo (number_format($row['product_price'] - ($row['product_price'] / 100 * $row['product_sale']))) . ' vnđ' ?></span>
-                                </div>
-                            </a>
-                        </div>
+                            <span>(<?php echo $total_rate ?>)</span>
+                        </span>
+                        <a href="index.php?page=product_detail&product_id=<?php echo $row['product_id'] ?>">
+                            <div class="product__price align-center">
+                                <del
+                                    class="product__price--old h5"><?php echo number_format($row['product_price']) . ' ₫' ?></del>
+                                <span
+                                    class="product__price--new h4"><?php echo (number_format($row['product_price'] - ($row['product_price'] / 100 * $row['product_sale']))) . ' vnđ' ?></span>
+                            </div>
+                        </a>
                     </div>
                 </div>
+            </div>
             <?php
             }
             ?>

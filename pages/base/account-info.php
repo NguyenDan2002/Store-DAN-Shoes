@@ -12,42 +12,43 @@ $query_account = mysqli_query($mysqli, $sql_account);
         <?php
         while ($account = mysqli_fetch_array($query_account)) {
         ?>
-            <table class="w-100">
-                <tr>
-                    <td><label class="info__title" for="">Tên khách hàng:</label></td>
-                    <td><span class="info__content flex-1"><?php echo $account['customer_name'] ?></span></td>
-                </tr>
-                <tr>
-                    <td><label class="info__title" for="">Email:</label></td>
-                    <td><span class="info__content flex-1"><?php echo $account['customer_email'] ?></span></td>
-                </tr>
-                <tr>
-                    <td><label class="info__title" for="">Số điện thoại:</label></td>
-                    <td><span class="info__content flex-1"><?php echo $account['customer_phone'] ?></span></td>
-                </tr>
-                <tr>
-                    <td><label class="info__title" for="">Địa chỉ:</label></td>
-                    <td><span class="info__content flex-1"><?php echo $account['customer_address'] ?></span></td>
-                </tr>
-                <tr>
-                    <td><label class="info__title" for="">Giới tính:</label></td>
-                    <td><span class="info__content flex-1"><?php echo format_gender($account['customer_gender']) ?></span></td>
-                </tr>
-            </table>
+        <table class="w-100">
+            <tr>
+                <td><label class="info__title" for="">Tên khách hàng:</label></td>
+                <td><span class="info__content flex-1"><?php echo $account['customer_name'] ?></span></td>
+            </tr>
+            <tr>
+                <td><label class="info__title" for="">Email:</label></td>
+                <td><span class="info__content flex-1"><?php echo $account['customer_email'] ?></span></td>
+            </tr>
+            <tr>
+                <td><label class="info__title" for="">Số điện thoại:</label></td>
+                <td><span class="info__content flex-1"><?php echo $account['customer_phone'] ?></span></td>
+            </tr>
+            <tr>
+                <td><label class="info__title" for="">Địa chỉ:</label></td>
+                <td><span class="info__content flex-1"><?php echo $account['customer_address'] ?></span></td>
+            </tr>
+            <tr>
+                <td><label class="info__title" for="">Giới tính:</label></td>
+                <td><span class="info__content flex-1"><?php echo format_gender($account['customer_gender']) ?></span>
+                </td>
+            </tr>
+        </table>
         <?php
         }
         ?>
     </div>
 </div>
 <script>
-    function loginAcceptMessage() {
-        toast({
-            title: "Success",
-            message: "Đăng nhập thành công",
-            type: "success",
-            duration: 3000,
-        });
-    }
+function loginAcceptMessage() {
+    toast({
+        title: "Success",
+        message: "Đăng nhập thành công",
+        type: "success",
+        duration: 3000,
+    });
+}
 </script>
 <?php
 if (isset($_GET['message']) && $_GET['message'] == 'success') {

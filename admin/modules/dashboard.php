@@ -36,88 +36,88 @@
     </div>
 </div>
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
 
-        thongke();
-        var char = new Morris.Line({
+    thongke();
+    var char = new Morris.Line({
 
-            element: 'linechart',
+        element: 'linechart',
 
-            xkey: 'date',
+        xkey: 'date',
 
-            ykeys: ['date', 'order', 'sales', 'quantity'],
+        ykeys: ['date', 'order', 'sales', 'quantity'],
 
-            labels: ['Ngày', 'Đơn hàng', 'Doanh thu', 'Số lượng']
-        });
-
-        $('#select-date').change(function() {
-            var thoigian = $(this).val();
-            if (thoigian == '7ngay') {
-                var text = '7 ngày qua';
-            } else if (thoigian == '28ngay') {
-                var text = '28 ngày qua';
-            } else if (thoigian == '90ngay') {
-                var text = '90 ngày qua';
-            } else {
-                var text = '365 ngày qua';
-            }
-            $('#text-date').text(text);
-            $.ajax({
-                url: "modules/thongke.php",
-                method: "POST",
-                dataType: "JSON",
-                data: {
-                    thoigian: thoigian
-                },
-                success: function(data) {
-                    char.setData(data);
-                    $('#text-date').text(text);
-
-
-                    console.log(data);
-                    // Lấy tổng số lượng đơn, số lượng bán và doanh thu
-                    var totalOrder = 0;
-                    var totalSales = 0;
-                    var totalQuantity = 0;
-                    for (var i = 0; i < data.length; i++) {
-                        totalOrder += parseInt(data[i].order);
-                        totalSales += parseInt(data[i].sales);
-                        totalQuantity += parseInt(data[i].quantity);
-                    }
-
-                    var formattedAmount = parseInt(totalSales).toLocaleString('vi-VN', {
-                        style: 'currency',
-                        currency: 'VND'
-                    });
-
-                    // Đổ dữ liệu vào các thẻ div tương ứng
-                    $('.metric__order').text(totalOrder);
-                    $('.metric__quantity').text(totalQuantity);
-                    $('.metric__sales').text(formattedAmount);
-                }
-            })
-        });
-
-        function thongke() {
-            var text = '365 ngày qua';
-            $.ajax({
-                url: "modules/thongke.php",
-                method: "POST",
-                dataType: "JSON",
-
-                success: function(data) {
-                    char.setData(data);
-                    $('#text-date').text(text);
-                }
-            })
-        }
+        labels: ['Ngày', 'Đơn hàng', 'Doanh thu', 'Số lượng']
     });
+
+    $('#select-date').change(function() {
+        var thoigian = $(this).val();
+        if (thoigian == '7ngay') {
+            var text = '7 ngày qua';
+        } else if (thoigian == '28ngay') {
+            var text = '28 ngày qua';
+        } else if (thoigian == '90ngay') {
+            var text = '90 ngày qua';
+        } else {
+            var text = '365 ngày qua';
+        }
+        $('#text-date').text(text);
+        $.ajax({
+            url: "modules/thongke.php",
+            method: "POST",
+            dataType: "JSON",
+            data: {
+                thoigian: thoigian
+            },
+            success: function(data) {
+                char.setData(data);
+                $('#text-date').text(text);
+
+
+                console.log(data);
+                // Lấy tổng số lượng đơn, số lượng bán và doanh thu
+                var totalOrder = 0;
+                var totalSales = 0;
+                var totalQuantity = 0;
+                for (var i = 0; i < data.length; i++) {
+                    totalOrder += parseInt(data[i].order);
+                    totalSales += parseInt(data[i].sales);
+                    totalQuantity += parseInt(data[i].quantity);
+                }
+
+                var formattedAmount = parseInt(totalSales).toLocaleString('vi-VN', {
+                    style: 'currency',
+                    currency: 'VND'
+                });
+
+                // Đổ dữ liệu vào các thẻ div tương ứng
+                $('.metric__order').text(totalOrder);
+                $('.metric__quantity').text(totalQuantity);
+                $('.metric__sales').text(formattedAmount);
+            }
+        })
+    });
+
+    function thongke() {
+        var text = '365 ngày qua';
+        $.ajax({
+            url: "modules/thongke.php",
+            method: "POST",
+            dataType: "JSON",
+
+            success: function(data) {
+                char.setData(data);
+                $('#text-date').text(text);
+            }
+        })
+    }
+});
 </script>
 
 <script>
-    var selectDate = document.querySelector(".select-date-tk");
-    var btnExport = document.getElementById("btnExport");
-    selectDate.addEventListener("change", function() {
-        btnExport.href="modules/export.php"
-    });
+var selectDate = document.querySelector(".select-date-tk");
+var btnExport = document.getElementById("btnExport");
+selectDate.addEventListener("change", function() {
+    btnExport.href = "modules/export.php"
+});
 </script>

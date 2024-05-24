@@ -251,7 +251,6 @@ h6,
   position: relative;
   top: 0;
   z-index: 10;
-  background-color: var(--color-bg);
 }
 
 .header__container {
@@ -702,7 +701,7 @@ h6,
   left: 0;
   right: 0;
   color: #ffffff;
-  background: #0000004f;
+  background-color: orange;
 }
 
 .collage__content {
@@ -1571,7 +1570,9 @@ h6,
 }
 
 /* checkout */
-
+.custom-orange-bg {
+  background-color: orange;
+}
 .checkout .col + .col {
   border-left: solid 1px var(--color-gray-dark);
 }

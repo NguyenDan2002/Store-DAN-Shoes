@@ -26,7 +26,8 @@
                             <a href="index.php?page=my_account&tab=account_settings" class="">Cài đặt tài khoản</a>
                         </li>
                         <li class="my-account__item">
-                            <a href="index.php?logout=1" onclick="return confirm('Bạn có đăng xuất không?')" class="">Đăng xuất</a>
+                            <a href="index.php?logout=1" onclick="return confirm('Bạn có đăng xuất không?')"
+                                class="">Đăng xuất</a>
                         </li>
                     </ul>
                 </div>

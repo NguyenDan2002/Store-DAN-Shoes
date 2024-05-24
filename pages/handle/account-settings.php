@@ -13,4 +13,4 @@
         mysqli_query($mysqli, $sql_update);
         header('Location: ../../index.php?page=my_account&tab=account_info');
     }
-?>  
+?>

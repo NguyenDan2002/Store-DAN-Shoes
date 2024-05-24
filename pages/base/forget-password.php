@@ -32,15 +32,18 @@ if (isset($_POST['register'])) {
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Email</span>
-                        <input class="input-form" onchange="getInputChange();" type="email" name="account_email" placeholder="Nhập vào địa chỉ email" required>
+                        <input class="input-form" onchange="getInputChange();" type="email" name="account_email"
+                            placeholder="Nhập vào địa chỉ email" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Mật khẩu</span>
-                        <input class="input-form" onchange="getInputChange();" type="text" name="account_password" placeholder="Nhập vào mật khẩu" required>
+                        <input class="input-form" onchange="getInputChange();" type="text" name="account_password"
+                            placeholder="Nhập vào mật khẩu" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Nhập lại mật khẩu</span>
-                        <input class="input-form" onchange="getInputChange();" type="text" name="account_password_confirn" placeholder="Nhập lại mật khẩu" required>
+                        <input class="input-form" onchange="getInputChange();" type="text"
+                            name="account_password_confirn" placeholder="Nhập lại mật khẩu" required>
                     </div>
                 </div>
                 <div class="button">

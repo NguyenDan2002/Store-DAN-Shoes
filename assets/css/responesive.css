@@ -59,7 +59,7 @@
 
   .header__nav {
     position: static;
-    width: 100%;
+    width: 80%;
     height: 100% !important;
     flex-direction: row;
     transform: none;

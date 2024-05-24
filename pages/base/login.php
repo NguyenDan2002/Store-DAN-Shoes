@@ -26,23 +26,23 @@
     </div>
 </section>
 <script>
-    function showSuccessMessage() {
-        toast({
-            title: "Success",
-            message: "Đăng ký thành công",
-            type: "success",
-            duration: 3000,
-        });
-    }
+function showSuccessMessage() {
+    toast({
+        title: "Success",
+        message: "Đăng ký thành công",
+        type: "success",
+        duration: 3000,
+    });
+}
 
-    function showErrorMessage() {
-        toast({
-            title: "Error",
-            message: "Lỗi đăng ký, vui lòng kiểm tra lại",
-            type: "error",
-            duration: 3000,
-        });
-    }
+function showErrorMessage() {
+    toast({
+        title: "Error",
+        message: "Lỗi đăng ký, vui lòng kiểm tra lại",
+        type: "error",
+        duration: 3000,
+    });
+}
 </script>
 <?php
 if (isset($_GET['message']) && $_GET['message'] == 'success') {

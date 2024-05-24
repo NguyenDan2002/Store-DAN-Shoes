@@ -11,9 +11,7 @@ include("./pages/base/product-sort.php");
 <!-- end product sort -->
 
 <!-- start product list -->
-<?php
-include("./pages/base/product-category.php");
-?>
+
 <!-- end product list -->
 
 <!-- start image width text -->
@@ -21,4 +19,3 @@ include("./pages/base/product-category.php");
 include("./pages/base/image-text.php");
 ?>
 <!-- end image width text -->
-

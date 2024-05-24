@@ -61,11 +61,10 @@
                     <li class="nav-item <?php if ($query === 'brand_list') { echo "active"; } ?>"> <a class="nav-link"
                             href="index.php?action=brand&query=brand_list">Danh sách thương hiệu</a></li>
                     <li class="nav-item <?php if ($query === 'scent_list') { echo "active"; } ?>"> <a class="nav-link"
-                            href="index.php?action=scent&query=scent_list">Danh sách mùi hương</a></li>
+                            href="index.php?action=scent&query=scent_list">Danh sách Size</a></li>
                     <li class="nav-item <?php if ($query === 'product_inventory') { echo "active"; } ?>"> <a
                             class="nav-link" href="index.php?action=product&query=product_inventory">Hàng tồn kho</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Thẻ quà tặng</a></li>
                 </ul>
             </div>
         </li>

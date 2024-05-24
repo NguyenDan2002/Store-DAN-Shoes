@@ -5,6 +5,7 @@ include("./pages/base/header.php");
 <!-- end header -->
 
 <?php
+
     if (isset($_GET['page'])) {
         $action = $_GET['page'];
     }else {
